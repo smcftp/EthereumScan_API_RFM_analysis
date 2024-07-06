@@ -69,7 +69,7 @@ def get_transactions_by_block_range(start_block, end_block, max_addresses):
 
     return addresses
 
-def get_transactions_in_time_range(min):
+def get_transactions_in_time_range(minute):
     
     # Получить список транзакций за последние `hours` часов.
 
@@ -80,7 +80,7 @@ def get_transactions_in_time_range(min):
     # - list: Список адресов транзакций.
     
     end_time = int(time.time())
-    start_time = end_time - (min * 60)  # 60 секунд в минуте
+    start_time = end_time - (minute * 60)  # 60 секунд в минуте
 
     try:
         end_block = get_block_number_by_timestamp(end_time)
@@ -180,8 +180,8 @@ def calculate_average_volume_last_month(transactions):
 ###########################################################################################################
 
 # Пример использования для получения транзакций за последнюю минуту
-min = 1  # 1 минута
-transactions = get_transactions_in_time_range(min)
+minute = 1  # 1 минута
+transactions = get_transactions_in_time_range(minute)
 
 # Создаем пустой список для сбора данных
 data = []
