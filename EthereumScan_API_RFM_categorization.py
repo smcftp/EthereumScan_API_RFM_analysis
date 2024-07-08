@@ -32,10 +32,10 @@ def get_recency_category(days):
         return 3  # Месячная давность
     elif days <= 90:
         return 4  # Квартальная давность
-    elif days >= 90 and days <= 365:
-        return 5  # Годовая давность
+    elif days >= 365:
+        return 6  # Более чем годовая давность 
     else:
-        return 6  # Более чем годовая давность
+        return 5  # Годовая давность
 
 df['Давность в днях'] = (start_date - df['Дата последней транзакции']).dt.days
 
