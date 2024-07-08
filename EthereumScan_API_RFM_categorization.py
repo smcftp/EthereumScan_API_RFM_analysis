@@ -132,18 +132,3 @@ for category, count in categories_counts.items():
     print(f"Категория {category}: Количество записей - {count}, Процентное соотношение - {percent:.2f}%")
     print(f"Описание: {recency_description}, {frequency_description}, {volume_description}\n")
     
-# Визуализация
-
-import plotly.express as px
-
-# Создание дополнительных столбцов для tree map
-df['Давность'] = df['Сумма категорий'].str[0].astype(int)
-df['Частота'] = df['Сумма категорий'].str[1].astype(int)
-df['Объем'] = df['Сумма категорий'].str[2].astype(int)
-
-# Создание tree map chart
-fig = px.treemap(df, path=['Давность', 'Частота', 'Объем'], values='Средний объем транзакции в ETH',
-                 title='Tree Map Chart по категориям')
-
-# Отображение графика
-fig.show()
